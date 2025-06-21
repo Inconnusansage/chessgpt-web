@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>My Chess Game</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-image: url('ChessGPT.PNG');
+      background-size: cover;     
+      background-position: center; 
+      background-repeat: no-repeat;
+      height: 100vh;               
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: white;
+    }
+    header {
+      background-color: transparent; /* no solid background */
+      width: 100%;
+      padding: 1em;
+      text-align: center;
+      height: 100px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* improves readability */
+    }
+    main {
+      max-width: 800px;
+      background: rgba(255, 255, 255, 0.3); /* semi-transparent white */
+      padding: 2em;
+      margin: 2em;
+      border-radius: 8px;
+      text-align: center;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+      box-shadow: none;
+    }
+    a.download-btn {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 1em 2em;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+    a.download-btn:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>ChessGPT</h1>
+  </header>
+  <main>
+    <p>Bienvenue sur mon jeu d'echecs. Telechargez le lien et bon amusement!</p>
+    
+    <!-- Replace the href with your actual download link -->
+    <a href="ChessGPT.zip" class="download-btn" download>Telecharge ChessGPT</a>
+
+    <section id="game-embed" style="margin-top: 3em;">
+      <h2>Jeu en Ligne (Bientot Disponible!)</h2>
+      <p>Vous pourrez y jouer ici lorsqu'elle est disponible</p>
+    </section>
+  </main>
+</body>
+</html>
