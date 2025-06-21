@@ -5,6 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>My Chess Game</title>
   <style>
+  a.button-link {
+    display: inline-block;
+    padding: 0.6em 1.2em;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  a.button-link:hover {
+    background-color: #0056b3;
+  }
     body {
       font-family: Arial, sans-serif;
       margin: 0;
@@ -62,7 +76,7 @@
     
     <!-- Replace the href with your actual download link -->
     <a href="ChessGPT.zip" class="download-btn" download>Telecharge ChessGPT</a>
-    <a href="about.html">Cahier des Charges</a>
+    <a href="about.html" class="button-link">Cahier des charges</a>
     <section id="game-embed" style="margin-top: 3em;">
       <h2>Jeu en Ligne (Bientot Disponible!)</h2>
       <p>Vous pourrez y jouer ici lorsqu'elle est disponible</p>
