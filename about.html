@@ -1,23 +1,73 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
-  <title>About ChessGPT</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>À propos - Cahier des charges</title>
   <style>
     body {
       font-family: Arial, sans-serif;
-      padding: 2em;
-      background: #f4f4f4;
+      margin: 2em;
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.6;
     }
-    a {
-      color: blue;
-      text-decoration: underline;
+    h1, h2 {
+      color: #222;
+    }
+    p {
+      margin-bottom: 1em;
+    }
+    section {
+      margin-bottom: 2em;
+    }
+    header {
+      border-bottom: 2px solid #ccc;
+      margin-bottom: 2em;
+      padding-bottom: 0.5em;
     }
   </style>
 </head>
 <body>
-  <h1>About ChessGPT</h1>
-  <p>This page can contain info about your chess game, your dev journey, or anything you want.</p>
-  <a href="index.html">Back to Home</a>
+  <header>
+    <h1>Cahier des charges</h1>
+  </header>
+
+  <section>
+    <h2>Choix du sujet</h2>
+    <p>J’ai décidé de faire un jeu d’échec pour mon examen de fin d’année. Mon objectif est que le jeu soit opérationnel avec l’utilisateur qui jouera contre une IA. Le choix des couleurs pour commencer la partie sera sélectionnable. Le joueur va pouvoir jouer à un jeu d’échec comme en ligne avec les règles suivantes : En Passant, Roquer, Promotion de pièces. Je vais aussi essayer de faire pour que le plateau soit customisable mais les pièces ne le seront pas.</p>
+  </section>
+
+  <section>
+    <h2>Structure du programme</h2>
+    <p>J’ai choisi d’apprendre un langage informatique que je n’avais jamais utilisé auparavant, celui-ci étant C++. Pour les interfaces graphiques de mon programme j’ai choisi SFML 3.0 et l’application utilisée pour programmer sera Visual Studio Code 2022 car il est mieux adapté pour ce que je veux essayer d’achever.</p>
+    <p>Il comportera plusieurs fichiers représentés ci-dessous :</p>
+    <ul>
+      <li><strong>Utilisateur :</strong> Tout simplement le nom du compte de l’utilisateur sur son ordinateur.</li>
+      <li><strong>Source :</strong> Comportant deux fichiers supplémentaires : repos et SMFL-3.0.0.</li>
+      <li><strong>Repos :</strong> Comportant le fichier du programme avec tous les .h et .cpp du Visual studio code mais aussi une partie Debug et Release permettant au programme de fonctionner.</li>
+      <li><strong>SMFL-3.0.0 :</strong> Contient une partie assets avec le nom des images, un fichier lib qui est important pour le fonctionnement de mon jeu et aussi un fichier include qui est d’autant utile que le précédent.</li>
+      <li><strong>Fichier Lib et Include :</strong> Des modifications seront apportées au programme dans le studio Visual code 2022 dans la partie propriétés afin que ses deux fichiers comprennent le langage utiliser.</li>
+    </ul>
+    <p>Je vais avoir un <code>int main</code> et une partie avant celle-ci pour définir les fonctions. Tout sera mis dans un fichier <code>All.cpp</code> avec le nom du programme étant <em>EchecFinal</em>.</p>
+    <p>Il y a aussi un site internet afin de pouvoir télécharger le jeu sur un autre ordinateur mais aussi accéder au PowerPoint de cet examen et le cahier de charge que vous êtes entrain de lire.</p>
+  </section>
+
+  <section>
+    <h2>But du programme</h2>
+    <p>Le but du jeu sera tout simplement pour se divertir mais aussi pour s’entrainer contre une IA du même niveau avant de se lancer dans le jeu en ligne et dans les parties sur plateau. Le joueur va pouvoir avoir destiné sur son choix de coup et pourra donc apprendre de ses erreurs. Le choix des couleurs le permettra de s’améliorer avec les deux couleurs du jeu et la customisation est un bonus pour améliorer l’aspect visuel du jeu.</p>
+  </section>
+
+  <section>
+    <h2>Langage de programmation</h2>
+    <p>J’ai utilisé C++ pour coder mon jeu car je voulais avoir le maximum de point dans l’originalité mais aussi élargir mes connaissances dans la programmation. Ceux qui utilisent Python, je les considère très basique car c’est ce qui connaisse et donc auquel ils se sentent en sécurité. J’ai donc décider de prendre un risque et de coder dans un langage plus compliquer sur Visual Studio Code 2022, une version du programme populaire que je n’avais pas utilisé auparavant.</p>
+    <p>La difficulté que je me suis infligée est dans le choix de l’interface graphique, SFML 3.0. La version est très récente et est la cause d’énormément de soucis que j’ai rencontré durant ce parcours. C’est quelque chose qui ne permet pas à l’improvisation et tout doit être exacte et bien coder. ChatGPT est un des éléments indisponibles à utiliser pour la correction des soucis de cette version de SFML à cause du fait qu’elle soit trop récente ce qui permet de prouver en même temps que mon projet est bien codé par un humain et non un robot.</p>
+  </section>
+
+  <section>
+    <h2>Éléments Techniques utilisées</h2>
+    <p>J’ai utilisé les boucles for, les ifs, les classes et bien plus que je ne saurais expliquer dans ce cahier à cause de sa complexité de compréhension et d’explication. Il y a tellement d’éléments pour chacun qu'expliquer chaque fonction a son fonctionnement serait un défi en lui-même. Je vous laisse découvrir mon programme pour révéler la surprise.</p>
+    <p>En plus d’utiliser un langage HTML pour le site internet et GitHub pour pouvoir le rendre publique, j’ai appris énormément et j’espère que le bonus sera pris en compte. Merci.</p>
+  </section>
 </body>
 </html>
