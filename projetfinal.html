@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Projet - Jeu d'Échecs en C++ avec SFML</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; background: #f8f8f8; }
+        h1, h2 { color: #2c3e50; }
+        code { background: #eaeaea; padding: 2px 6px; border-radius: 4px; }
+        pre { background: #eee; padding: 10px; border-radius: 5px; overflow-x: auto; }
+        .section { margin-bottom: 40px; }
+    </style>
+</head>
+<body>
+
+    <h1>Projet : Jeu d'Échecs en C++ avec SFML</h1>
+
+    <div class="section">
+        <h2>Description générale</h2>
+        <p>Ce projet consiste à créer un jeu d'échecs fonctionnel en C++ en utilisant la bibliothèque graphique <strong>SFML</strong>. Il permet aux joueurs de déplacer les pièces, tout en validant les mouvements selon les règles de base des échecs.</p>
+    </div>
+
+    <div class="section">
+        <h2>Technologies utilisées</h2>
+        <ul>
+            <li><strong>Langage :</strong> C++</li>
+            <li><strong>Bibliothèque graphique :</strong> SFML (Simple and Fast Multimedia Library)</li>
+            <li><strong>Images :</strong> PNG des pièces d’échecs</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Fonctionnalités implémentées</h2>
+        <ul>
+            <li>Affichage de l’échiquier en 8x8</li>
+            <li>Chargement des pièces (pions, tours, cavaliers, fous, roi, reine)</li>
+            <li>Déplacement de pièces avec la souris</li>
+            <li>Vérification des mouvements légaux pour les pions</li>
+            <li>Gestion du tour par couleur (blancs / noirs)</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Structure du code</h2>
+        <ul>
+            <li><code>main()</code> : boucle principale du programme</li>
+            <li><code>Piece</code> : structure représentant une pièce</li>
+            <li><code>algebraToPosition</code> : convertit une position en notation algébrique vers des coordonnées SFML</li>
+            <li><code>positionFromCoords</code> : convertit des coordonnées en notation échiquéenne</li>
+            <li><code>isMoveLegal</code> : vérifie la légalité d’un déplacement</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Extrait de code : Mouvement légal du pion</h2>
+        <pre><code>
+if (piece.name.find("pawn") != std::string::npos) {
+    int dir = piece.name.find("white") != std::string::npos ? 1 : -1;
+    int startRank = piece.name.find("white") != std::string::npos ? '2' : '7';
+
+    if (fileFrom == fileTo) {
+        if (dyRaw == dir && !isOccupied(targetPos, pieceSprites))
+            return true;
+
+        if ((rankFrom == startRank) && (dyRaw == 2 * dir)) {
+            std::string midSquare{ fileFrom, char(rankFrom + dir) };
+            if (!isOccupied(midSquare, pieceSprites) && !isOccupied(targetPos, pieceSprites))
+                return true;
+        }
+    }
+
+    // Capture en diagonale
+    if (dx == 1 && dyRaw == dir) {
+        ...
+    }
+}
+        </code></pre>
+    </div>
+
+    <div class="section">
+        <h2>Améliorations possibles</h2>
+        <ul>
+            <li>Ajout des règles pour les autres pièces (roi, cavalier, fou...)</li>
+            <li>Gestion de l’échec et mat</li>
+            <li>Détection du pat (match nul)</li>
+            <li>Promotion des pions</li>
+            <li>Roque et prise en passant</li>
+            <li>Ajout d'une interface pour recommencer une partie</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Conclusion</h2>
+        <p>Ce projet est une bonne introduction à la programmation de jeux en C++ avec SFML. Il couvre les bases de la logique d'échecs, la gestion des événements et le rendu graphique. De nombreuses fonctionnalités peuvent être ajoutées pour en faire un jeu complet.</p>
+    </div>
+
+</body>
+</html>
