@@ -1,104 +1,324 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ChessGPT</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Le chemin de vie de Liam</title>
   <style>
-  a.button-link {
-    display: inline-block;
-    padding: 0.6em 1.2em;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1rem;
-    transition: background-color 0.3s ease;
-  }
-  .red-btn {
-    display: block;       /* prend toute la largeur disponible */
-    width: 300px;         /* largeur fixe plus grande */
-    margin: 1.5em auto 0 auto; /* centré horizontalement et un peu d'espace au-dessus */
-    padding: 1em 2em;
-    background-color: #d9534f; /* rouge */
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    font-size: 1.1em;
-  }
-  .red-btn:hover {
-    background-color: #c9302c;
-  }
-  a.button-link:hover {
-    background-color: #0056b3;
-  }
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-image: url('ChessGPT.png');
-      background-size: cover;     
-      background-position: center; 
-      background-repeat: no-repeat;
-      height: 100vh;               
+      font-family: "Georgia", serif;
+      background: #f7f3e9;
+      color: #333;
+    }
+
+    /* Page d'accueil */
+    #accueil {
       display: flex;
       flex-direction: column;
+      justify-content: center;
       align-items: center;
-      color: white;
-    }
-    header {
-      background-color: transparent; /* no solid background */
-      width: 100%;
-      padding: 1em;
+      height: 100vh;
+      background: linear-gradient(135deg, #fff9f0, #e8f5e9);
       text-align: center;
-      height: 100px;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* improves readability */
+      padding: 20px;
     }
-    main {
-      max-width: 800px;
-      background: rgba(255, 255, 255, 0.3); /* semi-transparent white */
-      padding: 2em;
-      margin: 2em;
+
+    #accueil h1 {
+      font-size: 2.5em;
+      color: #2e7d32;
+      margin-bottom: 20px;
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+
+    #accueil button {
+      background: #81c784;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 1.2em;
       border-radius: 8px;
-      text-align: center;
-      color: white;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
-      box-shadow: none;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.15);
     }
-    a.download-btn {
-      display: inline-block;
-      margin-top: 1em;
-      padding: 1em 2em;
-      background-color: #28a745;
+
+    #accueil button:hover {
+      background: #66bb6a;
+      transform: scale(1.05);
+    }
+
+    /* Structure livre */
+    #livre {
+      display: none;
+      height: 100vh;
+      display: flex;
+    }
+
+    nav {
+      width: 220px;
+      background: #2c3e50;
+      color: white;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    nav h2 {
+      font-size: 1.2em;
+      margin-top: 0;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    nav ul li {
+      margin: 10px 0;
+    }
+
+    nav ul li a {
       color: white;
       text-decoration: none;
+      font-size: 1em;
+      display: block;
+      padding: 5px;
       border-radius: 5px;
-      font-weight: bold;
     }
-    a.download-btn:hover {
-      background-color: #218838;
+
+    nav ul li a:hover {
+      background: #34495e;
+    }
+
+    main {
+      flex-grow: 1;
+      padding: 60px 80px; /* marges larges comme un livre */
+      overflow-y: auto;
+      background: #fffdf7;
+      font-family: "Merriweather", Georgia, serif; /* police agréable à lire */
+      line-height: 1.8; /* espacement entre lignes */
+      font-size: 1.1em; /* texte légèrement agrandi */
+    }
+
+    main h1 {
+      margin-top: 0;
+      border-bottom: 2px solid #ddd;
+      padding-bottom: 10px;
+    }
+
+    main p {
+      text-align: justify;
+      text-indent: 2em; /* alinéa */
+      margin-bottom: 1.2em;
+    }
+
+    .chapter {
+      display: none;
+    }
+
+    .chapter.active {
+      display: block;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>ChessGPT</h1>
-  </header>
-  <main>
-    <p>Bienvenue sur mon jeu d'echecs. Telechargez le lien et bon amusement!</p>
-    
-    <!-- Replace the href with your actual download link -->
-    <a href="ChessGPT.zip" class="download-btn" download>Telecharge ChessGPT</a>
-    <a href="about.html" class="button-link">Cahier des charges</a>
-    <a href="https://1drv.ms/p/c/e76e2fd623cf1dcb/EZZhISqL__lHvIPxGZDUF44BYxX0DAgl-nrdkeAzG6Zm0w?e=Mi4ndU" target="_blank" class="red-btn">Voir PowerPoint</a>
-   <a href="projetfinal.html" class="download-btn" target="_blank">Voir le Rapport du Projet</a>
-    <section id="game-embed" style="margin-top: 3em;">
-      <h2>Jeu en Ligne (Bientot Disponible!)</h2>
-      <p>Vous pourrez y jouer ici lorsqu'elle est disponible</p>
-    </section>
-  </main>
+  <!-- Page d'accueil -->
+  <div id="accueil">
+    <h1>Bienvenue dans<br>Le chemin de vie de Liam</h1>
+    <button onclick="entrerLivre()">📖 Entrer dans le livre</button>
+  </div>
+
+  <!-- Livre avec chapitres -->
+  <div id="livre">
+    <nav>
+      <h2>Chapitres</h2>
+      <ul>
+        <li><a href="#" onclick="showChapter(1)">Chapitre 1</a></li>
+        <li><a href="#" onclick="showChapter(2)">Chapitre 2</a></li>
+        <li><a href="#" onclick="showChapter(3)">Chapitre 3</a></li>
+        <li><a href="#" onclick="showChapter(4)">Chapitre 4</a></li>
+        <li><a href="#" onclick="showChapter(5)">Chapitre 5</a></li>
+        <li><a href="#" onclick="showChapter(6)">Chapitre 6</a></li>
+        <li><a href="#" onclick="showChapter(7)">Chapitre 7</a></li>
+        <li><a href="#" onclick="showChapter(8)">Chapitre 8</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <div id="chapter1" class="chapter active">
+        <h1>Chapitre 1</h1>
+        <p>Ma naissance est, je pense, un élément important à inclure dans les moments marquants de ma vie, 
+           même si je ne peux pas l'expliquer en détail puisque je ne m'en souviens pas.</p>
+        <p>Tout ce que je peux en dire, 
+           c'est que je suis né(e) un mois à l'avance, ce qui n'a pas été très agréable pour personne, 
+           même si je n'en ai pris conscience que vers mes dix ans, peut-être ? Je n'en suis pas très certain(e).</p>
+        <p>Ce chapitre n'est qu'une introduction au reste de l'histoire, qui est très ambivalente.</p>
+      </div>
+      <div id="chapter2" class="chapter">
+  <h1>Chapitre 2</h1>
+  
+  <p>Quand je pense à mon enfance, certains éléments m’ont profondément marqué et ont contribué à faire de moi la personne que je suis aujourd’hui.</p>
+  
+  <p>J’ai commencé à la campagne, plus précisément à Wez. Lors de ma première et de ma deuxième primaire, je n’étais pas considéré comme un bon élève par les enseignants : nombreuses remarques sur l’illisibilité de mon écriture, incompréhension face aux situations autour de moi, et même plusieurs mises au coin.</p>
+  
+  <p>Je pense qu’il y a eu malgré tout un traumatisme lié à cette période, dont je me souviendrai probablement jusqu’à la fin de ma vie.</p>
+  
+  <p>Cela a entraîné à la fois des effets positifs et des effets négatifs :</p>
+  
+  <p><strong>Positifs :</strong> je suis devenu calme, je réfléchis avant de parler, et je fais beaucoup plus attention à la lisibilité de mon écriture.</p>
+  
+  <p><strong>Négatifs :</strong> j’ai peur de parler ou je n’ose pas dire certaines choses de crainte de « m’en prendre plein la figure » ; une certaine sensibilité, une tristesse prématurée qui est apparue dès la 1re–2e primaire, et un sentiment de traumatisme persistant.</p>
+  
+  <p>Le but de l’enseignante n’était sûrement pas de me rabaisser, mais plutôt de m’aider. Malheureusement, pour moi, cela n’a pas été une aide dans de nombreux aspects.</p>
+</div>
+      <div id="chapter3" class="chapter">
+  <h1>Chapitre 3</h1>
+  
+  <p>J’ai changé d’école et même d’environnement lors de ma troisième primaire. J’habitais maintenant à Tournai, et mes parents m’avaient inscrit à l’Athénée Royal Robert Campin. On peut dire que cette école a été à l’origine de presque tous les événements qui m’ont profondément marqué jusqu’à aujourd’hui.</p>
+  
+  <p>Si l’on compare avec les aspects positifs et négatifs de ma primaire précédente, j’ai vécu ici un harcèlement lié à mon excès de gentillesse et à mon nom de famille peu commun, « Pitcher ».</p>
+  
+  <p>Malgré cela, j’ai réussi à obtenir le prix du meilleur élève de troisième primaire, et ce dès ma première année dans cette école. Durant l’année, j’étais largement en avance sur les autres : je terminais mes exercices et mes contrôles bien avant tout le monde, et j’aidais les personnes en difficulté, même celles qui m’avaient harcelé. Déjà à ce moment-là, il était dans ma nature d’aider ceux qui en avaient besoin. Malheureusement, cette tendance a peu à peu disparu.</p>
+  
+  <p>Un effet négatif lié à ce prix s’est fait sentir dans les années suivantes : je me suis mis en compétition avec tout le monde et refusais de ne pas être le meilleur. En parallèle, je suis devenu beaucoup plus sensible et je subissais parfois le harcèlement de mon frère, dont je parlerai dans le chapitre suivant.</p>
+  
+  <p>La troisième primaire a été une année intéressante et, si je devais donner une impression immédiate, plutôt positive. Je pense que ce sera la seule année que je considérerai vraiment comme positive dans cette école.</p>
+</div>
+
+      <div id="chapter4" class="chapter">
+  <h1>Chapitre 4</h1>
+  
+  <p>De la quatrième à la sixième primaire, j’étais toujours en compétition pour être premier de l’année et remporter le prix du meilleur élève.</p>
+  
+  <p>Le seul prix que j’ai finalement réussi à obtenir fut celui de morale, pour ma gentillesse et ma contribution au cours. À l’époque, on disait qu’on n’avait jamais vu un petit garçon aussi souriant. Si seulement ils savaient comment je suis maintenant… C’est très nostalgique d’un côté, et donc très triste en même temps.</p>
+  
+  <p>Tout n’était pas rose durant ces trois dernières années : je subissais du harcèlement de la part de mon frère et de ses amis, et mon père avait choisi de croire l’un de ses amis plutôt que moi. C’est l’un des moments qui m’ont le plus marqué dans toute mon histoire.</p>
+  
+  <p>Je trouve qu’il est très difficile de ne pas évoquer les mauvais souvenirs dans un exercice comme celui-ci, car ce sont finalement eux qui nous marquent le plus.</p>
+  
+  <p>En tout cas, le chapitre des primaires se termine ici.</p>
+</div>
+
+  <div id="chapter5" class="chapter">
+  <h1>Chapitre 5</h1>
+  
+  <p>La période de la secondaire a été « l’époque » la plus brutale pour moi. Je vais essayer de limiter les détails pour que ce texte ne soit pas trop long, mais il s’est passé tellement de choses qu’en faire un roman autobiographique serait sans doute la meilleure idée.</p>
+  
+  <p><strong>Si je récapitule année par année :</strong></p>
+  
+  <p><em>La première</em> a été remplie de cœurs brisés, de trahisons par des amis, de disputes, de bagarres, et, pour finir, le début des grosses crises d’angoisse et de la dépression. Je ne pourrais pas citer une seule chose positive cette année-là. Ou alors, s’il y en a eu, elles ne m’ont pas marqué plus que ça.</p>
+  
+  <p><em>La deuxième année</em> a été encore plus triste. Cette fois-ci, c’était surtout du côté familial — un sujet que je préfère ne pas aborder ici — ainsi que d’autres événements en dehors de l’école et de la maison.</p>
+  
+  <p><em>Puis, en troisième</em>, le Covid est arrivé, et ce fut un véritable carnage pour beaucoup de gens sur le plan mental. Ne plus avoir de contact avec personne a profondément affecté le moral de nombreuses personnes, moi y compris, alors que je n’étais déjà pas bien avant cela. Le Covid a rendu les choses encore pires.</p>
+</div>
+      <div id="chapter6" class="chapter">
+  <h1>Chapitre 6</h1>
+  
+  <p>J’ai raté ma première quatrième secondaire, car j’ai dû être hospitalisé après une tentative de suicide.  
+  Je me sentais pourtant un peu mieux dans ma peau après cette étape, mais deux semaines plus tard, ma première copine m’a quitté pour quelqu’un d’autre… et c’était reparti pour un tour.  
+  Je n’avais plus envie de me concentrer sur quoi que ce soit à l’école : je ne lisais plus mes livres, je n’étudiais rien et je restais souvent enfermé dans ma chambre.</p>
+
+  <p>J’ai recommencé ma quatrième secondaire, toujours dans la même école, et cette fois, j’ai réussi, même si j’ai eu des examens de passage en français et en physique.  
+  Cette année-là, on était considérés comme la pire classe de l’école : beaucoup de redoublants à cause du Covid, et la plupart étaient vus comme les « délinquants » de l’établissement.  
+  C’était une expérience… intéressante.</p>
+
+  <p>C’est aussi cette année-là que le club d’échecs de l’école a ouvert, marquant le début de ma passion pour ce jeu.  
+  Lors du tournoi de fin d’année, j’ai même battu le proviseur de l’école — ce qui était assez chouette, surtout que c’est lui qui avait créé le club.</p>
+
+  <p>En cinquième secondaire, les choses ont encore été perturbées par une fille — mon ancienne meilleure amie.  
+  Il y avait souvent des disputes, des engueulades… et, forcément, ça joue sur le moral.  
+  Malgré tout, l’année scolaire s’est mieux passée, même si le départ de mon professeur d’immersion Géographie/Histoire m’a profondément touché.  
+  C’est lui qui m’a inspiré à écrire ce texte, et c’est grâce à lui que je suis dans votre classe aujourd’hui.</p>
+
+  <p>Je crois que j’avais encore deux ou trois examens de passage cette année-là — je ne me souviens plus exactement.  
+  Je sais que le français en faisait partie, car je ne lisais toujours pas mes livres, par manque d’envie et d’intérêt pour la lecture.</p>
+
+  <p>Ma meilleure amie, elle, a doublé cette année-là.  
+  Je n’ai jamais autant pleuré à l’école que ce jour-là.  
+  Ça signifiait qu’elle allait devoir changer d’établissement, et que je la verrais beaucoup moins.  
+  Après tout ce que j’avais traversé, je m’étais énormément rapproché d’elle…  
+  et ce redoublement a marqué la fin de ce lien si fort entre nous.</p>
+</div>
+
+      <div id="chapter7" class="chapter">
+  <h1>Chapitre 7</h1>
+  <p>
+    La sixième, la dernière année de cette longue secondaire.  
+    En tout cas, c’est ce que je pensais à ce moment-là… mais non.  
+    Il y a eu une énorme dispute avec mon ancienne meilleure amie, et elle a fini par me bloquer après que je lui ai dit les quatre vérités.  
+    C’était foutu pour moi à ce moment-là, et j’ai demandé à mon psychologue et à mon médecin de m’hospitaliser — le jour avant son anniversaire.  
+  </p>
+
+  <p>
+    J’ai passé un mois à l’hôpital, encore une fois pendant l’année scolaire, comme en quatrième.  
+    Entre-temps, des rumeurs gênantes ont circulé dans toute l’école à mon sujet.  
+    Les gens pensaient que j’étais hospitalisé pour des raisons « inimaginables », ce qui a complètement détruit mon retour à l’école.  
+    Ne sachant pas si ces rumeurs étaient vraies ou fausses, l’école a décidé de me suspendre pendant trois semaines.  
+  </p>
+
+  <p>
+    Je suis revenu en février, sous les regards de tous les élèves.  
+    J’étais banni du voyage rhéto (par précaution, à cause de mon hospitalisation) et du local rhéto (à cause des rumeurs).  
+    L’année s’est terminée ainsi : j’allais à l’école une ou deux fois par semaine, tout au plus.  
+    Tous les professeurs pensaient qu’il valait mieux que je recommence l’année suivante, le temps que la situation se calme.  
+  </p>
+
+  <p>
+    C’est ce que j’ai fait, et me voici lors de ma deuxième sixième… une année largement meilleure.  
+    J’ai été délégué pour la première fois de ma vie, malgré la moitié de la classe encore marquée par les rumeurs de l’année précédente.  
+    J’ai aussi commencé le club d’échecs à Tournai, j’ai perdu près de 30 kilos en un an, et j’affichais enfin un vrai sourire.  
+    C’était une très belle année.  
+  </p>
+
+  <p>
+    Quelqu’un a quand même essayé de la gâcher en relançant, dans le groupe de classe, les fausses rumeurs de l’année précédente.  
+    Mais cette fois, je ne me suis pas laissé faire — et le garçon a écopé d’une retenue.  
+  </p>
+
+  <p>
+    Le voyage rhéto a aussi été une belle expérience : j’ai pu montrer mon vrai moi aux autres.  
+    Même si certains ont préféré croire les rumeurs plutôt que la vérité en face, moi, j’ai réussi mon année sans examen de passage.  
+    J’ai pu tourner la page sur cette école et vivre enfin mon rêve : être proclamé.  
+    Un rêve que j’avais depuis le tout début de ma première secondaire.  
+  </p>
+</div>
+    <div id="chapter8" class="chapter">
+  <h1>Chapitre 8</h1>
+
+  <p>Me voici en BAC 1 de FLE-FLA S3, et je vais tout donner pour réussir.  
+  J’aurai sûrement des absences à cause de mon mental qui n’est pas encore au point, mais je promets de faire de mon mieux pour venir tous les jours, étudier, lire mes livres et être la meilleure version de moi-même.</p>
+
+  <p>Ma mission, c’est de devenir professeur en Angleterre.  
+  Ma mission, c’est d’aider les élèves qui traversent peut-être des journées ou des semaines difficiles, et de leur permettre de se sentir bien, simplement en venant à mon cours.</p>
+
+  <p>Ma mission, c’est que les élèves s’amusent, apprennent, et que mon cours soit une expérience inoubliable pour eux.  
+  Si mon professeur d’Histoire et de Géographie en immersion a su le faire, je ne vois pas pourquoi moi, je ne pourrais pas.</p>
+
+  <p>Voici, plus ou moins, tous les éléments qui m’ont marqué et qui font de moi la personne que je suis aujourd’hui.  
+  <strong>Merci.</strong></p>
+</div>
+
+    </main>
+  </div>
+
+  <script>
+    function entrerLivre() {
+      document.getElementById('accueil').style.display = 'none';
+      document.getElementById('livre').style.display = 'flex';
+    }
+
+    function showChapter(num) {
+      let chapters = document.querySelectorAll('.chapter');
+      chapters.forEach(ch => ch.classList.remove('active'));
+      document.getElementById("chapter" + num).classList.add('active');
+    }
+  </script>
 </body>
 </html>
+
